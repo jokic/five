@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<style type="text/css">
+		td{
+			width: 16px;
+			height: 16px;
+		}
+		.center{
+			display: flex;
+		}
+		#table-bg{
+			position: relative;
+			display: inline-block;
+			margin: 0px auto;
+			background-color: #ccc;
+		}
+		#table-bg>span{
+			display: inline-block;
+			border: 1px solid #000;
+			border-radius: 50%;
+			position: absolute;
+		}
+		.white{
+			background-color: #fff;
+		}
+		.black{
+			background-color: #000;
+		}
+		.test{
+			background-color: red;
+			opacity: .5;
+		}
+		.ctrl-list{
+			padding-top: 20px;
+			text-align: center;
+		}
+		#tip-box{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			display: flex;
+			align-items: center;
+			transition: all linear .5s;
+		}
+		#tip{
+			width: 100%;
+			background: rgba(247, 245, 245, 0.8);
+			padding: 10px 0px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body onresize="initPosition()">
+	<div class="center">
+		<div id="table-bg" onclick="clickTable(event)">
+			<table id="table" border="1" cellspacing="0"></table>
+			<div id="tip-box">
+				<div id="tip">信息提示信息</div>
+			</div>
+		</div>
+	</div>
+	<div class="ctrl-list">
+		<input type="button" value="重新开始" onclick="reStart()">
+		<input type="button" value="人机对战" onclick="mcModeStart()" id="pve">
+		<input type="button" value="练习模式" onclick="practiceStart()" id="practice">
+		<input type="button" value="悔棋" onclick="takeBack()" id="takeBack" disabled>
+		<input type="button" value="撤销悔棋" onclick="cancleTakeBack()" disabled id="cancleTakeBack">
+	</div>
+</body>
+<script type="text/javascript" src="main.js"></script>
+</html>
